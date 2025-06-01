@@ -2,4 +2,4 @@
 /frontend/css/
 /frontend/images/
 /frontend/js/
-/terraform/providers.tf
+*/providers.tf
