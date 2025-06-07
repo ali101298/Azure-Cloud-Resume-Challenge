@@ -1,3 +1,5 @@
+# Here we define our provider, which is Azure
+
 terraform {
     required_version = ">= 1.0"
     required_providers {

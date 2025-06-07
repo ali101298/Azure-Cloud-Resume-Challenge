@@ -2,3 +2,42 @@
 /frontend/css/
 /frontend/images/
 /frontend/js/
+
+# Azure & Terraform Secrets
+*.tfvars
+.terraform/
+*.tfstate
+.env
+.env.local
+
+# Local development files
+local.settings.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Azure Functions
+bin/
+obj/
+.azure/
