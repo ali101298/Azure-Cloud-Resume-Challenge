@@ -15,7 +15,7 @@ output "website_url" {
 
 output "cdn_endpoint_url" {
     description = "CDN endpoint URL"
-    value = "https://${azurerm_cdn_endpoint.acrc_website.fqdn}"
+    value = "https://${azurerm_cdn_endpoint.alizamin.fqdn}"
 }
 
 output "function_app_name" {

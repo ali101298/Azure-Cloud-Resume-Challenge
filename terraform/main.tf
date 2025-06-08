@@ -141,9 +141,9 @@ resource "azurerm_cdn_profile" "acrc_cdn_profile" {
 }
 
 # CDN Endpoint
-resource "azurerm_cdn_endpoint" "acrc_website" {
+resource "azurerm_cdn_endpoint" "alizamin" {
     name = "cdn-site-${var.project_name}-${random_string.suffix.result}"
-    profile_name = azurerm_cdn_endpoint.acrc_cdn_profile.name
+    profile_name = azurerm_cdn_profile.acrc_cdn_profile.name
     location = azurerm_resource_group.acrc_resource_group.location
     resource_group_name = azurerm_resource_group.acrc_resource_group.name
 
@@ -151,6 +151,12 @@ resource "azurerm_cdn_endpoint" "acrc_website" {
         name = "acrc_website_origin"
         host_name = azurerm_storage_account.acrc_website.primary_web_host
     }
+    
+    origin_host_header = azurerm_storage_account.acrc_website.primary_web_host
+
+    #Enable HTTPS redirect
+    is_https_allowed = true
+    is_http_allowed = false
 
     tags.var
 }
