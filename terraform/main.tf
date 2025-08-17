@@ -28,7 +28,7 @@ resource "azurerm_storage_account" "acrc_website" {
     location = azurerm_resource_group.acrc_resource_group.location
     account_tier = "Standard"
     account_replication_type = "LRS"
-    account_kind = StorageV2
+    account_kind = "StorageV2"
 
     static_website {
         index_document = "index.html"
@@ -41,7 +41,7 @@ resource "azurerm_storage_account" "acrc_website" {
 resource "azurerm_cosmosdb_account" "acrc_cosmosdb_account" {
     name = "cosmos-${var.project_name}-${random_string.suffix.result}"
     location = azurerm_resource_group.acrc_resource_group.location
-    resource_group_name = resource_group_name.acrc_resource_group.name
+    resource_group_name = azurerm_resource_group.acrc_resource_group.name
     offer_type = "Standard"
     kind = "GlobalDocumentDB"
 
@@ -57,7 +57,7 @@ resource "azurerm_cosmosdb_account" "acrc_cosmosdb_account" {
     }
 
     consistency_policy {
-        consistency_level "Session"
+        consistency_level = "Session"
     }
 
     geo_location {
@@ -71,7 +71,7 @@ resource "azurerm_cosmosdb_account" "acrc_cosmosdb_account" {
 # Configuring CosmosDB Table for visitor counter
 resource "azurerm_cosmosdb_table" "acrc_cosmos_table" {
     name = "VisitorCounter"
-    resource_group_name = resource_group_name.acrc_resource_group.name
+    resource_group_name = azurerm_resource_group.acrc_resource_group.name
     account_name = azurerm_cosmosdb_account.acrc_cosmosdb_account.name
     throughput = "400"
 } 
@@ -158,5 +158,5 @@ resource "azurerm_cdn_endpoint" "alizamin" {
     is_https_allowed = true
     is_http_allowed = false
 
-    tags.var
+    tags = var.tags
 }
