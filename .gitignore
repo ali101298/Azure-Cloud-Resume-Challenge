@@ -9,6 +9,7 @@
 *.tfstate
 .env
 .env.local
+.terraform.lock.hcl
 
 # Local development files
 local.settings.json

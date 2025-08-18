@@ -2,29 +2,29 @@
 
 variable "project_name" {
   description = "Name of the project"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "environment" {
-    description = "Environment name"
-    type = string
-    default = ""
+  description = "Environment name"
+  type        = string
+  default     = ""
 }
 
 variable "location" {
-    description = "Azure region"
-    type = string
-    default = ""
+  description = "Azure region"
+  type        = string
+  default     = ""
 }
 
 variable "tags" {
-    description = "Tags to apply to all resources"
-    type = map(string)
-    default = {
-        Project = ""
-        Environment = ""
-        ManagedBy = ""
-        Owner = ""
-    }
+  description = "Tags to apply to all resources"
+  type        = map(string)
+  default = {
+    Project     = ""
+    Environment = ""
+    ManagedBy   = ""
+    Owner       = ""
+  }
 }
